@@ -208,7 +208,7 @@ export function FeaturesSection() {
             platforma ishga tushganida birinchilardan bo'lib habardor bo'lish
           </h3>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Ta'limHub demo versiyasi orqali barcha imkoniyatlarni bepul sinab ko'ring
+              Platforma ishga tushganda birinchilardan bo'lib habardor bo'lish uchun ro'yxatdan o'ting
             </p>
             
             <Button 
