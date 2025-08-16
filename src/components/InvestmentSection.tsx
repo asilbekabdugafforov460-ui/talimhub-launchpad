@@ -337,11 +337,7 @@ Date: ${new Date().toISOString()}
       }} className="mt-16 text-center">
           
           <div className="flex justify-center items-center gap-8 opacity-60">
-            {["IT Park", "INHA University", "Westminster", "TUIT", "Najot Ta'lim"].map((partner, index) => (
-              <span key={index} className="text-sm text-muted-foreground font-medium">
-                {partner}
-              </span>
-            ))}
+            {["IT Park", "INHA University", "Westminster", "TUIT", "Najot Ta'lim"].map((partner, index) => {})}
           </div>
         </motion.div>
       </div>
