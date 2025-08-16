@@ -155,7 +155,7 @@ Date: ${new Date().toISOString()}
                   {stat.value}
                 </div>
                 <div className="text-sm text-muted-foreground">
-                  {stat.label}
+                  maqsad uzbekiston bozori va keyinchalik dunyo bozoriga chiqish
                 </div>
               </motion.div>;
         })}
@@ -337,7 +337,11 @@ Date: ${new Date().toISOString()}
       }} className="mt-16 text-center">
           
           <div className="flex justify-center items-center gap-8 opacity-60">
-            {["IT Park", "INHA University", "Westminster", "TUIT", "Najot Ta'lim"].map((partner, index) => {})}
+            {["IT Park", "INHA University", "Westminster", "TUIT", "Najot Ta'lim"].map((partner, index) => (
+              <span key={index} className="text-sm text-muted-foreground font-medium">
+                {partner}
+              </span>
+            ))}
           </div>
         </motion.div>
       </div>
