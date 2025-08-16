@@ -6,22 +6,14 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/hooks/use-toast';
-import { 
-  TrendingUp, 
-  DollarSign, 
-  Users, 
-  Globe,
-  Mail,
-  User,
-  Building,
-  MessageSquare,
-  ArrowRight,
-  CheckCircle2
-} from 'lucide-react';
-
+import { TrendingUp, DollarSign, Users, Globe, Mail, User, Building, MessageSquare, ArrowRight, CheckCircle2 } from 'lucide-react';
 export function InvestmentSection() {
-  const { t } = useTranslation();
-  const { toast } = useToast();
+  const {
+    t
+  } = useTranslation();
+  const {
+    toast
+  } = useToast();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -30,10 +22,8 @@ export function InvestmentSection() {
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
     if (!formData.name || !formData.email || !formData.investment) {
       toast({
         title: "Ma'lumotlar to'liq emas",
@@ -55,7 +45,9 @@ Date: ${new Date().toISOString()}
 =====================================
 
 `;
-    const blob = new Blob([data], { type: 'text/plain' });
+    const blob = new Blob([data], {
+      type: 'text/plain'
+    });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
@@ -64,37 +56,57 @@ Date: ${new Date().toISOString()}
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
-
     setIsSubmitted(true);
     toast({
       title: "Muvaffaqiyatli yuborildi!",
-      description: "Tez orada sizga bog'lanamiz",
+      description: "Tez orada sizga bog'lanamiz"
     });
-
     setTimeout(() => {
       setIsSubmitted(false);
-      setFormData({ name: '', email: '', company: '', investment: '', message: '' });
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        investment: '',
+        message: ''
+      });
     }, 5000);
   };
-
-  const stats = [
-    { icon: Users, value: "1M+", label: "Potentsial foydalanuvchilar", color: "text-primary" },
-    { icon: DollarSign, value: "$50B", label: "O'zbekiston ta'lim bozori", color: "text-success" },
-    { icon: TrendingUp, value: "300%", label: "Yillik o'sish prognozi", color: "text-warning" },
-    { icon: Globe, value: "5", label: "Maqsadli viloyatlar", color: "text-secondary" }
-  ];
-
-  return (
-    <section id="investment" className="py-20 bg-gradient-to-br from-background via-primary/5 to-background">
+  const stats = [{
+    icon: Users,
+    value: "1M+",
+    label: "Potentsial foydalanuvchilar",
+    color: "text-primary"
+  }, {
+    icon: DollarSign,
+    value: "$50B",
+    label: "O'zbekiston ta'lim bozori",
+    color: "text-success"
+  }, {
+    icon: TrendingUp,
+    value: "300%",
+    label: "Yillik o'sish prognozi",
+    color: "text-warning"
+  }, {
+    icon: Globe,
+    value: "5",
+    label: "Maqsadli viloyatlar",
+    color: "text-secondary"
+  }];
+  return <section id="investment" className="py-20 bg-gradient-to-br from-background via-primary/5 to-background">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
+        <motion.div initial={{
+        opacity: 0,
+        y: 30
+      }} whileInView={{
+        opacity: 1,
+        y: 0
+      }} transition={{
+        duration: 0.6
+      }} viewport={{
+        once: true
+      }} className="text-center mb-16">
           <Badge variant="secondary" className="mb-4 px-4 py-2 bg-gradient-primary text-white">
             Investitsiya imkoniyati
           </Badge>
@@ -107,25 +119,35 @@ Date: ${new Date().toISOString()}
         </motion.div>
 
         {/* Stats Grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
-        >
+        <motion.div initial={{
+        opacity: 0,
+        y: 30
+      }} whileInView={{
+        opacity: 1,
+        y: 0
+      }} transition={{
+        duration: 0.6,
+        delay: 0.2
+      }} viewport={{
+        once: true
+      }} className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
           {stats.map((stat, index) => {
-            const IconComponent = stat.icon;
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="feature-card text-center group"
-              >
+          const IconComponent = stat.icon;
+          return <motion.div key={index} initial={{
+            opacity: 0,
+            scale: 0.8
+          }} whileInView={{
+            opacity: 1,
+            scale: 1
+          }} transition={{
+            duration: 0.6,
+            delay: 0.3 + index * 0.1
+          }} viewport={{
+            once: true
+          }} whileHover={{
+            scale: 1.05,
+            y: -5
+          }} className="feature-card text-center group">
                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3 ${stat.color.replace('text-', 'bg-')}/10`}>
                   <IconComponent className={`h-6 w-6 ${stat.color}`} />
                 </div>
@@ -135,46 +157,45 @@ Date: ${new Date().toISOString()}
                 <div className="text-sm text-muted-foreground">
                   {stat.label}
                 </div>
-              </motion.div>
-            );
-          })}
+              </motion.div>;
+        })}
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Investment Highlights */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="space-y-8"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          x: -30
+        }} whileInView={{
+          opacity: 1,
+          x: 0
+        }} transition={{
+          duration: 0.6,
+          delay: 0.4
+        }} viewport={{
+          once: true
+        }} className="space-y-8">
             <div>
               <h3 className="text-2xl font-bold text-foreground mb-6">
                 Nima uchun Ta'limHub ga investitsiya qilishingiz kerak?
               </h3>
               
               <div className="space-y-4">
-                {[
-                  "O'zbekiston ta'lim sohasidagi birinchi kompleks yechim",
-                  "AI dublyaj texnologiyasi bilan raqobatsiz ustunlik",
-                  "50,000+ potentsial foydalanuvchi bazasi",
-                  "Government support va strategic partnerships",
-                  "Scalable business model va recurring revenue",
-                  "Experienced team va proven technology stack"
-                ].map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="flex items-start gap-3"
-                  >
+                {["O'zbekiston ta'lim sohasidagi birinchi kompleks yechim", "AI dublyaj texnologiyasi bilan raqobatsiz ustunlik", "50,000+ potentsial foydalanuvchi bazasi", "Government support va strategic partnerships", "Scalable business model va recurring revenue", "Experienced team va proven technology stack"].map((item, index) => <motion.div key={index} initial={{
+                opacity: 0,
+                x: -20
+              }} whileInView={{
+                opacity: 1,
+                x: 0
+              }} transition={{
+                duration: 0.4,
+                delay: 0.6 + index * 0.1
+              }} viewport={{
+                once: true
+              }} className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                     <span className="text-muted-foreground">{item}</span>
-                  </motion.div>
-                ))}
+                  </motion.div>)}
               </div>
             </div>
 
@@ -200,15 +221,19 @@ Date: ${new Date().toISOString()}
           </motion.div>
 
           {/* Investment Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            viewport={{ once: true }}
-            className="bg-card rounded-3xl p-8 border border-border shadow-xl"
-          >
-            {!isSubmitted ? (
-              <>
+          <motion.div initial={{
+          opacity: 0,
+          x: 30
+        }} whileInView={{
+          opacity: 1,
+          x: 0
+        }} transition={{
+          duration: 0.6,
+          delay: 0.6
+        }} viewport={{
+          once: true
+        }} className="bg-card rounded-3xl p-8 border border-border shadow-xl">
+            {!isSubmitted ? <>
                 <h3 className="text-2xl font-bold text-foreground mb-2">
                   Investor bo'ling
                 </h3>
@@ -220,85 +245,65 @@ Date: ${new Date().toISOString()}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="relative">
                       <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                      <Input
-                        type="text"
-                        placeholder="Ismingiz *"
-                        value={formData.name}
-                        onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
-                        className="pl-10 h-12"
-                        required
-                      />
+                      <Input type="text" placeholder="Ismingiz *" value={formData.name} onChange={e => setFormData(prev => ({
+                    ...prev,
+                    name: e.target.value
+                  }))} className="pl-10 h-12" required />
                     </div>
                     
                     <div className="relative">
                       <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                      <Input
-                        type="email"
-                        placeholder="Email *"
-                        value={formData.email}
-                        onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-                        className="pl-10 h-12"
-                        required
-                      />
+                      <Input type="email" placeholder="Email *" value={formData.email} onChange={e => setFormData(prev => ({
+                    ...prev,
+                    email: e.target.value
+                  }))} className="pl-10 h-12" required />
                     </div>
                   </div>
 
                   <div className="relative">
                     <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                    <Input
-                      type="text"
-                      placeholder="Kompaniya nomi"
-                      value={formData.company}
-                      onChange={(e) => setFormData(prev => ({ ...prev, company: e.target.value }))}
-                      className="pl-10 h-12"
-                    />
+                    <Input type="text" placeholder="Kompaniya nomi" value={formData.company} onChange={e => setFormData(prev => ({
+                  ...prev,
+                  company: e.target.value
+                }))} className="pl-10 h-12" />
                   </div>
 
                   <div className="relative">
                     <DollarSign className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                    <Input
-                      type="text"
-                      placeholder="Investitsiya miqdori *"
-                      value={formData.investment}
-                      onChange={(e) => setFormData(prev => ({ ...prev, investment: e.target.value }))}
-                      className="pl-10 h-12"
-                      required
-                    />
+                    <Input type="text" placeholder="Investitsiya miqdori *" value={formData.investment} onChange={e => setFormData(prev => ({
+                  ...prev,
+                  investment: e.target.value
+                }))} className="pl-10 h-12" required />
                   </div>
 
                   <div className="relative">
                     <MessageSquare className="absolute left-3 top-3 h-5 w-5 text-muted-foreground" />
-                    <Textarea
-                      placeholder="Qo'shimcha ma'lumot..."
-                      value={formData.message}
-                      onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
-                      className="pl-10 min-h-20"
-                      rows={3}
-                    />
+                    <Textarea placeholder="Qo'shimcha ma'lumot..." value={formData.message} onChange={e => setFormData(prev => ({
+                  ...prev,
+                  message: e.target.value
+                }))} className="pl-10 min-h-20" rows={3} />
                   </div>
 
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <Button 
-                      type="submit" 
-                      className="w-full h-12 btn-hero-primary group"
-                      size="lg"
-                    >
+                  <motion.div whileHover={{
+                scale: 1.02
+              }} whileTap={{
+                scale: 0.98
+              }}>
+                    <Button type="submit" className="w-full h-12 btn-hero-primary group" size="lg">
                       {t('investment.cta')}
                       <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </motion.div>
                 </form>
-              </>
-            ) : (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
-                className="text-center py-8"
-              >
+              </> : <motion.div initial={{
+            opacity: 0,
+            scale: 0.8
+          }} animate={{
+            opacity: 1,
+            scale: 1
+          }} transition={{
+            duration: 0.5
+          }} className="text-center py-8">
                 <div className="w-20 h-20 bg-success/10 rounded-full flex items-center justify-center mx-auto mb-6">
                   <CheckCircle2 className="h-10 w-10 text-success" />
                 </div>
@@ -313,36 +318,28 @@ Date: ${new Date().toISOString()}
                     Business plan va financial projections sizning emailingizga yuboriladi.
                   </p>
                 </div>
-              </motion.div>
-            )}
+              </motion.div>}
           </motion.div>
         </div>
 
         {/* Trust Indicators */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          viewport={{ once: true }}
-          className="mt-16 text-center"
-        >
-          <p className="text-muted-foreground mb-6">Bizga ishonayotgan tashkilotlar:</p>
+        <motion.div initial={{
+        opacity: 0,
+        y: 30
+      }} whileInView={{
+        opacity: 1,
+        y: 0
+      }} transition={{
+        duration: 0.6,
+        delay: 0.8
+      }} viewport={{
+        once: true
+      }} className="mt-16 text-center">
+          
           <div className="flex justify-center items-center gap-8 opacity-60">
-            {["IT Park", "INHA University", "Westminster", "TUIT", "Najot Ta'lim"].map((partner, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: 1 + index * 0.1 }}
-                viewport={{ once: true }}
-                className="px-4 py-2 bg-muted/30 rounded-lg text-sm font-medium"
-              >
-                {partner}
-              </motion.div>
-            ))}
+            {["IT Park", "INHA University", "Westminster", "TUIT", "Najot Ta'lim"].map((partner, index) => {})}
           </div>
         </motion.div>
       </div>
-    </section>
-  );
+    </section>;
 }
