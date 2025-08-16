@@ -202,7 +202,7 @@ export function FeaturesSection() {
             <Button size="lg" className="btn-hero-primary group" onClick={() => document.querySelector('#contact')?.scrollIntoView({
             behavior: 'smooth'
           })}>
-              Demo so'rash
+              Ro'yxatdan o'tish
               <Play className="ml-2 h-5 w-5 group-hover:scale-110 transition-transform" />
             </Button>
           </div>
