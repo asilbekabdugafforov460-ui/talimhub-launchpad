@@ -204,9 +204,9 @@ export function FeaturesSection() {
           className="mt-20 text-center"
         >
           <div className="bg-gradient-to-br from-background to-muted/50 rounded-3xl p-8 lg:p-12 border border-border">
-            <h3 className="text-2xl lg:text-3xl font-bold mb-6 text-foreground">
-              Platformani sinab ko'ring
-            </h3>
+          <h3 className="text-2xl lg:text-3xl font-bold mb-6 text-foreground">
+            platforma ishga tushganida birinchilardan bo'lib habardor bo'lish
+          </h3>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
               Ta'limHub demo versiyasi orqali barcha imkoniyatlarni bepul sinab ko'ring
             </p>
